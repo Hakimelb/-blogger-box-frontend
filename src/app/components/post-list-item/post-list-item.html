@@ -1,8 +1,11 @@
 @if (post) {
-  <h3>{{ post.title }}</h3>
-  <p>{{ post.content }}</p>
-  <div>
-    <span>{{ post.category.name }}</span>
-    <span>{{ post.createdDate }}</span>
+  <div class="post-card">
+    <h3>{{ post.title }}</h3>
+    <p>{{ post.content }}</p>
+
+    <div class="meta">
+      <span class="badge">{{ post.category.name }}</span>
+      <span>{{ post.createdDate }}</span>
+    </div>
   </div>
 }
