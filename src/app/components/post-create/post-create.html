@@ -1,0 +1,30 @@
+<div class="container mt-4">
+  <h2 class="mb-3">Write a post</h2>
+
+  <div class="mb-3">
+    <label class="form-label">Title</label>
+    <input class="form-control" [(ngModel)]="title" name="title" />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Content</label>
+    <textarea class="form-control" rows="6" [(ngModel)]="content" name="content"></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Category</label>
+
+    @if (categories$ | async; as categories) {
+      <select class="form-select" [(ngModel)]="categoryId" name="categoryId">
+        <option value="" disabled>Select a category</option>
+        @for (c of categories; track c.id) {
+          <option [value]="c.id">{{ c.name }}</option>
+        }
+      </select>
+    } @else {
+      <p>Loading categories...</p>
+    }
+  </div>
+
+  <button class="btn btn-success" (click)="submit()">Publish</button>
+</div>
